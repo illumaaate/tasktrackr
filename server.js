@@ -1,6 +1,7 @@
 // server.js
 require('dotenv').config();
 const express = require('express');
+const compression = require('compression');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const tasksRouter = require('./routes/tasks');
@@ -11,6 +12,7 @@ const MONGODB_URI =
   process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/task_manager';
 
 // middleware
+app.use(compression()); // gzip/brotli when available — improves mobile payloads
 app.use(cors());              // CORS
 app.use(express.json());      // JSON body
 app.use(express.static('public')); // фронт
