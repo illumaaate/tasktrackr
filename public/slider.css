@@ -1,0 +1,90 @@
+/* slider.css — простой рабочий вариант */
+
+#task-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: radial-gradient(circle at top left, #eef2ff, #e0f2fe);
+}
+
+/* обёртка со слайдами */
+#task-slider .slides {
+  display: flex;
+}
+
+/* каждый слайд занимает всю ширину контейнера */
+#task-slider .slide {
+  flex: 0 0 100%;
+  padding: 1rem 1.1rem 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#task-slider .slide.active {
+  opacity: 1;
+}
+
+/* заголовок и текст */
+#task-slider .slide h3 {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+}
+
+#task-slider .slide p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* стрелки */
+
+#task-slider .prev,
+#task-slider .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(15, 23, 42, 0.85);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#task-slider .prev {
+  left: 8px;
+}
+
+#task-slider .next {
+  right: 8px;
+}
+
+/* точки */
+
+#task-slider .pagination {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+#task-slider .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(15, 23, 42, 0.3);
+  padding: 0;
+  cursor: pointer;
+}
+
+#task-slider .dot.active {
+  width: 20px;
+  background: #4f46e5;
+}

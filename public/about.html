@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>О сервисе · TaskTrackr</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <h1>TaskTrackr · О сервисе</h1>
+          <span id="greeting"></span>
+        </div>
+        <nav>
+          <ul>
+            <li><a class="nav-link" href="index.html">Главная</a></li>
+            <li><a class="nav-link" href="stats.html">Статистика</a></li>
+            <li><a class="nav-link active" href="about.html">О сервисе</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page-wrapper">
+      <main>
+        <section>
+          <h2>Идея и назначение</h2>
+          <p class="section-subtitle">
+            Небольшой учебный web‑сервис для демонстрации полного стека:
+            HTML, CSS, JavaScript, Express и MongoDB.
+          </p>
+
+          <div class="about-layout">
+            <article class="about-card">
+              <h3>Зачем нужен TaskTrackr</h3>
+              <p>
+                Сервис помогает систематизировать учебные задачи: от
+                подготовки к ЕГЭ до курсовых и пет‑проектов. Здесь можно
+                создавать задачи, задавать дедлайны, отслеживать статусы и
+                смотреть сводную статистику.
+              </p>
+              <p>
+                Проект специально спроектирован так, чтобы закрыть
+                требования лабораторной работы: семантическая разметка,
+                адаптивная вёрстка, интерактивность на JavaScript и работа
+                с REST API и базой данных.
+              </p>
+            </article>
+
+            <article class="about-card">
+              <h3>Технологический стек</h3>
+              <dl>
+                <dt>Фронтенд</dt>
+                <dd>HTML5, CSS3 (Flexbox, Grid, media queries), JavaScript ES6+</dd>
+
+                <dt>Бэкенд</dt>
+                <dd>Node.js, Express.js, REST API (CRUD по задачам)</dd>
+
+                <dt>База данных</dt>
+                <dd>MongoDB + Mongoose, схема задачи с валидацией</dd>
+
+                <dt>Инструменты</dt>
+                <dd>Git, Chrome DevTools, Postman/cURL, MongoDB Compass</dd>
+              </dl>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <h2>Структура сайта</h2>
+          <p class="section-subtitle">
+            Набор взаимосвязанных страниц, демонстрирующих разные аспекты
+            веб‑разработки.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Главная</strong> — создание и список задач, слайдер,
+              работа с JSON и XML, интерактивность на JavaScript.
+            </li>
+            <li>
+              <strong>Статистика</strong> — агрегированные данные по задачам,
+              таблицы с вложенными таблицами и якоря.
+            </li>
+            <li>
+              <strong>О сервисе</strong> — описание архитектуры и технологий,
+              список определений и документация.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Полезные ссылки</h2>
+          <p class="section-subtitle">
+            Внешние ресурсы, использованные при разработке.
+          </p>
+
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/" target="_blank"
+                >MDN Web Docs</a
+              >
+              — справочник по HTML, CSS, JavaScript и HTTP.
+            </li>
+            <li>
+              <a href="https://expressjs.com/" target="_blank">Express.js</a>
+              — документация по фреймворку для Node.js.
+            </li>
+            <li>
+              <a href="https://mongoosejs.com/" target="_blank">Mongoose</a>
+              — ODM для работы с MongoDB.
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          © 2025 TaskTrackr · учебный проект по веб‑программированию.
+          <a href="index.html">Вернуться на главную</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

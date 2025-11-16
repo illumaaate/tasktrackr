@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Статистика задач · TaskTrackr</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <h1>TaskTrackr · Статистика</h1>
+          <span id="greeting"></span>
+        </div>
+        <nav>
+          <ul>
+            <li><a class="nav-link" href="index.html">Главная</a></li>
+            <li><a class="nav-link active" href="stats.html">Статистика</a></li>
+            <li><a class="nav-link" href="about.html">О сервисе</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page-wrapper">
+      <main>
+        <section>
+          <h2 id="overview">Общий обзор</h2>
+          <p class="section-subtitle">
+            Сводные показатели по задачам (данные вычисляются на клиенте).
+          </p>
+
+          <div class="stats-grid">
+            <div class="stats-card">
+              <div class="stats-label">Всего задач</div>
+              <div id="stat-total" class="stats-value">0</div>
+            </div>
+            <div class="stats-card">
+              <div class="stats-label">В работе</div>
+              <div id="stat-in-progress" class="stats-value">0</div>
+            </div>
+            <div class="stats-card">
+              <div class="stats-label">Завершённые</div>
+              <div id="stat-done" class="stats-value">0</div>
+            </div>
+            <div class="stats-card">
+              <div class="stats-label">Без дедлайна</div>
+              <div id="stat-without-due" class="stats-value">0</div>
+            </div>
+          </div>
+
+          <p class="section-subtitle">
+            Показатели обновляются при каждом запросе списка задач с сервера.
+          </p>
+        </section>
+
+        <section>
+          <h2 id="table">Таблица с агрегатами</h2>
+          <p class="section-subtitle">
+            Таблица категорий с вложенной таблицей по статусам.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Категория</th>
+                <th>Всего</th>
+                <th>Вложенные данные</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Учёба</td>
+                <td id="cat-study-total">0</td>
+                <td>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Статус</th>
+                        <th>Кол-во</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>todo</td>
+                        <td id="cat-study-todo">0</td>
+                      </tr>
+                      <tr>
+                        <td>in-progress</td>
+                        <td id="cat-study-in-progress">0</td>
+                      </tr>
+                      <tr>
+                        <td>done</td>
+                        <td id="cat-study-done">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Проекты</td>
+                <td id="cat-project-total">0</td>
+                <td>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Статус</th>
+                        <th>Кол-во</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>todo</td>
+                        <td id="cat-project-todo">0</td>
+                      </tr>
+                      <tr>
+                        <td>in-progress</td>
+                        <td id="cat-project-in-progress">0</td>
+                      </tr>
+                      <tr>
+                        <td>done</td>
+                        <td id="cat-project-done">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="section-subtitle">
+            Для примера категории считаются по ключевым словам в названии
+            задачи («ЕГЭ», «курс», «проект» и т.п.).
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          <a href="#overview">К началу страницы</a> ·
+          <a href="index.html#tasks-section">К таблице задач</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

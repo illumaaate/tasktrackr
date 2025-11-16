@@ -1,0 +1,33 @@
+// server.js
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const tasksRouter = require('./routes/tasks');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+const MONGODB_URI =
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/task_manager';
+
+// middleware
+app.use(cors());              // CORS
+app.use(express.json());      // JSON body
+app.use(express.static('public')); // фронт
+
+// REST API
+app.use('/api/tasks', tasksRouter);
+
+// error handler (простая отказоустойчивость)
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: 'Server error' });
+});
+
+mongoose
+  .connect(MONGODB_URI)
+  .then(() => {
+    console.log('MongoDB connected');
+    app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+  })
+  .catch((e) => console.error(e));

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Учёт задач</title>
+
+    <style>
+      .inline-example {
+        color: #ffe8b3;
+      }
+    </style>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <h1>TaskTrackr · Учёт задач</h1>
+          <span id="greeting"></span>
+        </div>
+        <nav>
+          <ul>
+            <li><a class="nav-link active" href="index.html">Главная</a></li>
+            <li><a class="nav-link" href="stats.html">Статистика</a></li>
+            <li><a class="nav-link" href="about.html">О сервисе</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page-wrapper">
+      <main>
+        <section>
+          <h2>Ваши учебные задачи</h2>
+          <p class="section-subtitle">
+            Категории, этапы выполнения и формальные определения элементов
+            системы.
+          </p>
+
+          <h3>Категории задач</h3>
+          <ul>
+            <li>Подготовка к ЕГЭ по информатике</li>
+            <li>Задачи по университетским курсам</li>
+            <li>Пет‑проекты и хобби</li>
+          </ul>
+
+          <h3>Жизненный цикл задачи</h3>
+          <ol>
+            <li>Постановка задачи и оценка сложности.</li>
+            <li>Выполнение с разбивкой на подзадачи.</li>
+            <li>Проверка решения и рефакторинг.</li>
+            <li>Отметка статуса как завершённого.</li>
+          </ol>
+
+          <h3>Определения</h3>
+          <dl>
+            <dt>Задача</dt>
+            <dd>Минимальная единица работы с дедлайном и статусом.</dd>
+            <dt>Статус</dt>
+            <dd>Состояние задачи: todo, in‑progress, done.</dd>
+            <dt>Приоритет</dt>
+            <dd>Оценка важности задачи относительно других задач.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Добавить задачу</h2>
+          <p class="section-subtitle">
+            Заполни форму и задача появится в списке ниже и в базе данных.
+          </p>
+
+          <form id="task-form">
+            <label>
+              Название задачи
+              <input
+                type="text"
+                name="title"
+                required
+                minlength="3"
+                id="title-input"
+              />
+            </label>
+
+            <label>
+              Описание
+              <textarea
+                name="description"
+                rows="3"
+                placeholder="Например: решить задачи 1–5 из варианта №12"
+              ></textarea>
+            </label>
+
+            <label>
+              Категория
+              <select name="category">
+                <option value="study">Учебная</option>
+                <option value="work">Рабочая</option>
+                <option value="practice">Практика</option>
+                <option value="personal">Личная</option>
+              </select>
+            </label>
+
+            <label>
+              Дедлайн
+              <input type="date" name="dueDate" />
+            </label>
+
+            <label>
+              Статус
+              <select name="status">
+                <option value="todo">Запланировано</option>
+                <option value="in-progress">В работе</option>
+                <option value="done">Готово</option>
+              </select>
+            </label>
+
+            <button type="submit">Создать задачу</button>
+            <p id="form-error" class="error" hidden></p>
+          </form>
+        </section>
+
+        <section id="tasks-section">
+          <h2>Список задач</h2>
+          <p class="section-subtitle">
+            Нажмите на строку в таблице, чтобы открыть подробности задачи.
+          </p>
+
+          <button id="toggle-tasks" class="secondary">
+            Скрыть/показать список
+          </button>
+
+          <table id="tasks-table">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Категория</th>
+                <th>Статус</th>
+                <th>Дедлайн</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="tasks-body">
+              <!-- JS вставит строки -->
+            </tbody>
+          </table>
+        </section>
+      </main>
+
+      <footer>
+        <p class="inline-example">
+          © 2025 TaskTrackr · учебный сервис учёта задач.
+        </p>
+        <p>
+          Документация по HTML/CSS/JS:
+          <a href="https://developer.mozilla.org/" target="_blank"
+            >MDN Web Docs</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <!-- Модальное окно с деталями задачи -->
+    <div id="task-modal-overlay" class="modal-overlay">
+      <div class="modal">
+        <button class="modal-close" id="task-modal-close">×</button>
+        <h3 id="modal-title">Задача</h3>
+
+        <p><strong>Категория:</strong> <span id="modal-category">—</span></p>
+        <p><strong>Статус:</strong> <span id="modal-status">—</span></p>
+        <p><strong>Дедлайн:</strong> <span id="modal-due">—</span></p>
+        <p><strong>Описание:</strong></p>
+        <p id="modal-description">—</p>
+
+        <h4>JSON</h4>
+        <pre id="modal-json">{}</pre>
+
+        <h4>XML</h4>
+        <pre id="modal-xml"></pre>
+      </div>
+    </div>
+  </body>
+</html>
